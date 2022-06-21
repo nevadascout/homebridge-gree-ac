@@ -41,7 +41,10 @@ export class PlatformAC {
       HC.eventEmitter,
       HC.EVENT
     );
-    new ACLight(this.platform, this.accessory);
+      
+    if (this.platform.config.enableDisplayLightControls === true) {
+      new ACLight(this.platform, this.accessory);
+    }
 
     if (
       this.platform.config.dhtService &&
